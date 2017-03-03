@@ -1,5 +1,4 @@
 <?php
-echo $_SERVER['PHP_SELF'].' '.$_SERVER['SERVER_NAME']
+echo $_SERVER['PHP_SELF'].' '.$_SERVER['SERVER_NAME']. $_SERVER['REQUEST_METHOD']. $_SERVER['QUERY_STRING'];
 
-;
 ?>
