@@ -1,23 +1,24 @@
+<?php
+   session_start();
+   
+   if( isset( $_SESSION['counter'] ) ) {
+      $_SESSION['counter'] += 1;
+   }else {
+      $_SESSION['counter'] = 1;
+   }
+	
+   $msg = "You have visited this page ".  $_SESSION['counter'];
+   $msg .= "in this session.";
+?>
+
 <html>
+   
    <head>
-      <title>Reading a file using PHP</title>
+      <title>Setting up a PHP session</title>
    </head>
+   
    <body>
-      <?php
-         $filename = "tmp.txt";
-         $file = fopen( $filename, "r" );
-         
-         if( $file == false ) {
-            echo ( "Error in opening file" );
-            exit();
-         }
-         
-         $filesize = filesize( $filename );
-         $filetext = fread( $file, $filesize );
-         fclose( $file );
-         
-         echo ( "File size : $filesize bytes" );
-         echo ( "<pre>$filetext</pre>" );
-      ?>
+      <?php  echo ( $msg ); ?>
    </body>
+   
 </html>
