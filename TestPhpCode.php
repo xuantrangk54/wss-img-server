@@ -1,25 +1,23 @@
+<?php
+   if( $_POST["name"] || $_POST["age"] ) {
+      if (preg_match("/[^A-Za-z'-]/",$_POST['name'] )) {
+         die ("invalid name and name should be alpha");
+      }
+      
+      echo "Welcome ". $_POST['name']. "<br />";
+      echo "You are ". $_POST['age']. " years old.";
+      
+      exit();
+   }
+?>
 <html>
    <body>
    
-      <?php
-         srand( microtime() * 1000000 );
-         $num = rand( 1, 4 );
-         
-         switch( $num ) {
-            case 1: $image_file = "/php/images/logo.png";
-               break;
-            
-            case 2: $image_file = "/php/images/php.jpg";
-               break;
-            
-            case 3: $image_file = "/php/images/logo.png";
-               break;
-            
-            case 4: $image_file = "/php/images/php.jpg";
-               break;
-         }
-         echo "Random Image : <img src=$image_file />";
-      ?>
+      <form action = "<?php $_PHP_SELF ?>" method = "POST">
+         Name: <input type = "text" name = "name" />
+         Age: <input type = "text" name = "age" />
+         <input type = "submit" />
+      </form>
       
    </body>
 </html>
