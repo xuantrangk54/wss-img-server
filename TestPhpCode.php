@@ -1,25 +1,23 @@
 <html>
    <body>
-   
+      
       <?php
-         /* First method to create array. */
-         $numbers = array( 1, 2, 3, 4, 5);
+         /* First method to associate create array. */
+         $salaries = array("mohammad" => 2000, "qadir" => 1000, "zara" => 500);
          
-         foreach( $numbers as $value ) {
-            echo "Value is $value <br />";
-         }
+         echo "Salary of mohammad is ". $salaries['mohammad'] . "<br />";
+         echo "Salary of qadir is ".  $salaries['qadir']. "<br />";
+         echo "Salary of zara is ".  $salaries['zara']. "<br />";
          
          /* Second method to create array. */
-         $numbers[0] = "one";
-         $numbers[1] = "two";
-         $numbers[2] = "three";
-         $numbers[3] = "four";
-         $numbers[4] = "five";
+         $salaries['mohammad'] = "high";
+         $salaries['qadir'] = "medium";
+         $salaries['zara'] = "low";
          
-         foreach( $numbers as $value ) {
-            echo "Value is $value <br />";
-         }
+         echo "Salary of mohammad is ". $salaries['mohammad'] . "<br />";
+         echo "Salary of qadir is ".  $salaries['qadir']. "<br />";
+         echo "Salary of zara is ".  $salaries['zara']. "<br />";
       ?>
-      
+   
    </body>
 </html>
