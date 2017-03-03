@@ -1,30 +1,23 @@
-<?php
-   if( $_POST["location"] ) {
-      $location = $_POST["location"];
-      header( "Location:$location" );
-      
-      exit();
-   }
-?>
 <html>
+   <head>
+      <title>Reading a file using PHP</title>
+   </head>
    <body>
-   
-      <p>Choose a site to visit :</p>
-      
-      <form action = "<?php $_SERVER['PHP_SELF'] ?>" method ="POST">
-         <select name = "location">.
+      <?php
+         $filename = "tmp.txt";
+         $file = fopen( $filename, "r" );
          
-            <option value = "http://www.tutorialspoint.com">
-               Tutorialspoint.com
-            </option>
+         if( $file == false ) {
+            echo ( "Error in opening file" );
+            exit();
+         }
          
-            <option value = "http://www.google.com">
-               Google Search Page
-            </option>
+         $filesize = filesize( $filename );
+         $filetext = fread( $file, $filesize );
+         fclose( $file );
          
-         </select>
-         <input type = "submit" />
-      </form>
-      
+         echo ( "File size : $filesize bytes" );
+         echo ( "<pre>$filetext</pre>" );
+      ?>
    </body>
 </html>
